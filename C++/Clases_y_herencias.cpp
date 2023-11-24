@@ -1,5 +1,5 @@
+//Corrección de indentado
 #include <iostream>
-
 using namespace std;
 
 class componentes{
