@@ -1,5 +1,5 @@
-//Corrección de indentado
 #include <iostream>
+
 using namespace std;
 
 class componentes{
@@ -15,7 +15,7 @@ class componentes{
 class Resistor : public componentes{
 	private:
 		float resistencia, potencia_disipada;
-		Resistor *siguiente;
+		Resistor* siguiente;
 	public:
 		void set_resistencia(float);
 		float get_resistencia(void);
@@ -38,8 +38,8 @@ class Capacitor : public componentes{
 		Capacitor* get_siguiente(void);
 };
 
-typedef Resistor *p_Resistor; //Creo un puntero que apunte a la clase
-typedef Capacitor *p_Capacitor;
+typedef Resistor* p_Resistor; //Redefino p_Resistor a Resistor*
+typedef Capacitor* p_Capacitor;
 
 void componentes::set_lugar(string _lugar){
 	lugar = _lugar;
@@ -185,7 +185,7 @@ char menu_inicio (void){
 	return Eleccion;
 }        
 
-void Crear_Resistor (p_Resistor *Comienzo_R){ 
+void Crear_Resistor (p_Resistor* Comienzo_R){ 
 	string lugar, armario;
 	float resistencia, potencia_disipada;
 	p_Resistor Nuevo_Resistor = new Resistor; //apunta a la nueva dirección de memoria 
@@ -222,7 +222,6 @@ void cambiar_valor_r (p_Resistor comienzo){
 			auxiliar->set_resistencia(resistencia);
 			auxiliar->set_potencia_disipada(potencia);
 			bandera = false;
-			auxiliar = auxiliar->get_siguiente();
 			break;
 		}
 		auxiliar = auxiliar->get_siguiente();
@@ -270,7 +269,7 @@ void mostrar_resistores (p_Resistor comienzo){
 	}
 }
 
-void borrar_resistor (p_Resistor *comienzo){
+void borrar_resistor (p_Resistor* comienzo){
 	p_Resistor ahora = *comienzo, anterior = NULL;
 	float resistencia, potencia;
 	cout<<"Ingrese el valor de resistencia a eliminar: ";
@@ -291,7 +290,7 @@ void borrar_resistor (p_Resistor *comienzo){
 	}
 }
 
-void Crear_Capacitor (p_Capacitor *Comienzo_C){
+void Crear_Capacitor (p_Capacitor* Comienzo_C){
 	string lugar,armario;
 	float capacitancia, voltaje;
 	p_Capacitor Nuevo_Capacitor = new Capacitor;
@@ -375,7 +374,7 @@ void mostrar_capacitores (p_Capacitor comienzo){
 	}
 }
 
-void borrar_capacitor (p_Capacitor *comienzo){
+void borrar_capacitor (p_Capacitor* comienzo){
 	p_Capacitor ahora = *comienzo, anterior = NULL;
 	float capacitancia, voltaje;
 	cout<<"Ingrese el valor de resistencia a buscar: ";
